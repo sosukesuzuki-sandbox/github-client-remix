@@ -44,7 +44,6 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function SigninCallback() {
   return (
     <main>
-      <h1>GitHub Client built with Remix!</h1>
       <h2>Callback...</h2>
     </main>
   );

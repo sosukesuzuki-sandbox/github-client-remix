@@ -13,9 +13,6 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Index() {
   const { isSignedIn } = useLoaderData();
   return (
-    <main>
-      <h1>GitHub Client built with Remix!</h1>
-      {isSignedIn ? null : <NavLink to="signin">Sign In</NavLink>}
-    </main>
+    <main>{isSignedIn ? null : <NavLink to="signin">Sign In</NavLink>}</main>
   );
 }

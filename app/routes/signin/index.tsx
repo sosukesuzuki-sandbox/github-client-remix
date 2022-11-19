@@ -31,7 +31,6 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Signin() {
   return (
     <main>
-      <h1>GitHub Client built with Remix!</h1>
       <h2>
         Sign in to <a href="https://github.com">GitHub</a>
       </h2>
