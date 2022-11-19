@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "lint": "eslint --ext .ts,.tsx app",
+    "format": "prettier -w ."
   },
   "keywords": [],
   "author": "",
