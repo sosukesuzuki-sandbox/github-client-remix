@@ -13,7 +13,7 @@ import { json } from "@remix-run/node";
 import { Header } from "~/components/Header";
 import { getSession } from "./session.server";
 import { SideNav } from "./components/SideNav";
-import { getViewerImageUrl } from "./lib/users";
+import { getViewerImageUrl } from "./lib/viewer";
 
 export const meta: MetaFunction = () => ({
   charSet: "utf-8",
