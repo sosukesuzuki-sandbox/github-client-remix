@@ -1,4 +1,3 @@
-const WEBSITE_URL = "http://localhost:3000";
 const GITHUB_BASE_URL = "https://github.com";
 
 // https://docs.github.com/ja/developers/apps/building-oauth-apps/authorizing-oauth-apps#1-request-a-users-github-identity
