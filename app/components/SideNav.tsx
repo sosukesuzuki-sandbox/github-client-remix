@@ -8,9 +8,6 @@ export const SideNav: FC = () => {
         <li>
           <NavLink to="repositories">Repositories</NavLink>
         </li>
-        <li>
-          <NavLink to="organizations">Organizations</NavLink>
-        </li>
       </ul>
     </div>
   );
