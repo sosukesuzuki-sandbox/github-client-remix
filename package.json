@@ -31,5 +31,8 @@
     "@remix-run/server-runtime": "^1.7.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "volta": {
+    "node": "19.1.0"
   }
 }
