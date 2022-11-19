@@ -8,7 +8,6 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useLocation,
 } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { Header } from "~/components/Header";
