@@ -13,6 +13,7 @@ import { json } from "@remix-run/node";
 import { Header } from "~/components/Header";
 import { getSession } from "./session.server";
 import { SideNav } from "./components/SideNav";
+import { getViewerImageUrl } from "./lib/users";
 
 export const meta: MetaFunction = () => ({
   charSet: "utf-8",
@@ -22,16 +23,27 @@ export const meta: MetaFunction = () => ({
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request.headers.get("Cookie"));
+  const accessToken = session.get("access_token");
+
   const url = new URL(request.url);
   const passthroughPathnames = new Set(["/signin", "/signin/callback"]);
+  const isPassthroughPathname = passthroughPathnames.has(url.pathname);
+
+  let viewerImageUrl;
+  if (accessToken) {
+    viewerImageUrl = (await getViewerImageUrl(accessToken)).data.viewer
+      .avatarUrl;
+  }
+
   return json({
-    isSignedIn: Boolean(session.get("access_token")),
-    isPassthroughPathname: passthroughPathnames.has(url.pathname),
+    isSignedIn: Boolean(accessToken),
+    isPassthroughPathname,
+    viewerImageUrl,
   });
 };
 
 export default function App() {
-  const { isSignedIn, isPassthroughPathname } = useLoaderData();
+  const { isSignedIn, isPassthroughPathname, viewerImageUrl } = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -39,7 +51,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Header />
+        <Header viewerImageUrl={viewerImageUrl} />
         {(() => {
           if (isPassthroughPathname) {
             return <Outlet />;
